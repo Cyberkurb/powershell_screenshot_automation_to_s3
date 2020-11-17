@@ -57,5 +57,6 @@ While($True){
     $key_info = "$($s3Folder)/$($filename)"
     Write-S3Object -BucketName screen-shots-employees -File $filename -Key $key_info -CannedACLName public-read
     $holdtime = Get-Random -Minimum 15 -Maximum 300
+    Remove-Item -Path $filename -Force
     Start-Sleep $holdtime
 } 
